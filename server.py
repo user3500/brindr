@@ -8,11 +8,10 @@ def my_home():
 
 def write_to_csv(data):
     with open('database.csv', newline='', mode='a') as database:
-        email = data["email"]
         name = data["name"]
         message = data["message"]
         csv_writer = csv.writer(database, delimiter=',',quotechar='"',quoting=csv.QUOTE_MINIMAL)
-        csv_writer.writerow([email,name,message])
+        csv_writer.writerow([name,message])
 
 @app.route('/submit_form', methods=['POST','GET'])
 def submit_form():
